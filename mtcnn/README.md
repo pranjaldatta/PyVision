@@ -40,4 +40,4 @@ img = show_boxes(img, b)
 img.show()
 ```
 
-For a more detailed usage, check out mtcnn_test.py
+For a more detailed usage, check out [mtcnn_test.py](https://github.com/pranjaldatta/PyVision/blob/master/tests/mtcnn/mtcnn_test.py)
