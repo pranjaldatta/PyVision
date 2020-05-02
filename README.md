@@ -8,6 +8,22 @@ In PyTorch only!
 
 - **Multi Task Cascaded Convolutional Neural Network (MTCNN)** : A SOTA face and facial-landmark detection architecture. Check out this for more details.
 
+## Installation 
+
+Run the following code to only clone the master branch which contains working code
+
+```
+git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch master
+```
+
+## Contributing
+
+- When contributing, the complete source files + tests should be pushed through a branch by the name of the contributer.
+
+- tests should be in the PyVision/tests/\<architecture name\>/ folder.
+
+- If weights are heavy, please ensure they are downloaded **only** on an as-you-need basis. (Maybe host it somewhere like AWS S3)
+
 ## ToDo
 
 - [ ] Populate with more architectures (obviously)
