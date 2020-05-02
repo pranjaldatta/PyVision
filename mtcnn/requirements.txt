@@ -1,0 +1,6 @@
+python=3.7.1
+pytorch=1.4.0=py3.7_cpu_0
+pillow=7.1.1=py37h718be6c_0
+numpy=1.18.1=py37h8960a57_1
+torchvision=0.5.0=py37_cpu
+opencv=4.1.1
