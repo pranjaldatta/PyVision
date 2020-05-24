@@ -1,5 +1,5 @@
-pytorch
+torch
 gdown
 numpy
-opencv==4.1.1
+opencv-python==4.1.1
 matplotlib
