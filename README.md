@@ -31,9 +31,9 @@ git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch 
 
 - [ ] Populate with more architectures (obviously)
 
-- [x] Come up with an efficient way to make the repository minimal i.e. assets (like weights) will only be downloaded on as-you-need basis. All weights are hosted on SRM-MIC Google drive and downloaded using gdown
+- [x] ~~Come up with an efficient way to make the repository minimal i.e. assets (like weights) will only be downloaded on as-you-need basis.~~ All weights are hosted on SRM-MIC Google drive and downloaded using gdown
 
-- [x] Come up with an efficient way to ensure that heavy architecture specific dependecies are installed only when required. ALl heavy assets are installed only when model is being used.
+- [x] ~~Come up with an efficient way to ensure that heavy architecture specific dependecies are installed only when required.~~ All heavy assets are installed only when model is being used.
 
 ## Note
 
