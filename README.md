@@ -21,11 +21,7 @@ git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch 
 
 ## Contributing
 
-- When contributing, the complete source files + tests should be pushed through a branch by the name of the contributer.
-
-- tests should be in the PyVision/tests/\<architecture name\>/ folder.
-
-- If weights are heavy, please ensure they are downloaded **only** on an as-you-need basis. (Maybe host it somewhere like AWS S3)
+For contribution guidelines, please look [here](https://github.com/pranjaldatta/PyVision/tree/master/docs/contributing.md).Contributions are always welcome!
 
 ## ToDo
 
