@@ -1,0 +1,5 @@
+pytorch
+gdown
+numpy
+opencv==4.1.1
+matplotlib
