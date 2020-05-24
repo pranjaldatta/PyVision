@@ -9,6 +9,8 @@ In PyTorch only!
 
 - **Multi Task Cascaded Convolutional Neural Network (MTCNN)** : A SOTA face and facial-landmark detection architecture. Check out [this](https://github.com/pranjaldatta/PyVision/blob/master/mtcnn/README.md) out for more details.
 
+- **YOLOv3:** The SOTA object detection algorithm. For more details, read the [docs](https://github.com/pranjaldatta/PyVision/blob/master/detection/yolov3/readme.md)
+
 ## Installation 
 
 Run the following code to only clone the master branch which contains working code
@@ -29,9 +31,9 @@ git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch 
 
 - [ ] Populate with more architectures (obviously)
 
-- [ ] Come up with an efficient way to make the repository minimal i.e. assets (like weights) will only be downloaded on as-you-need basis.
+- [x] Come up with an efficient way to make the repository minimal i.e. assets (like weights) will only be downloaded on as-you-need basis. All weights are hosted on SRM-MIC Google drive and downloaded using gdown
 
-- [ ] Come up with an efficient way to ensure that heavy architecture specific dependecies are installed only when required.
+- [x] Come up with an efficient way to ensure that heavy architecture specific dependecies are installed only when required. ALl heavy assets are installed only when model is being used.
 
 ## Note
 
