@@ -13,15 +13,29 @@ In PyTorch only!
 
 ## Installation 
 
-Run the following code to only clone the master branch which contains working code
+1. Run the code in your terminal to clone the master branch which contains the working code
 
 ```
-git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch master
+$ git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branch master
 ```
+
+2. Then, go to the repository root by pasting the command given below into your terminal
+
+```
+$ cd
+```
+
+3. Run the following command in the terminal to install PyVision into the current virtual or conda environment
+
+```
+$ pip install .
+```
+
+4. You are good to go!.
 
 ## Contributing
 
-For contribution guidelines, please look [here](https://github.com/pranjaldatta/PyVision/tree/master/docs/contributing.md).Contributions are always welcome!
+For contribution guidelines, please look [here](https://github.com/pranjaldatta/PyVision/tree/master/docs/contributing.md).  Contributions are always welcome!
 
 ## ToDo
 

@@ -30,7 +30,7 @@ Detection is done through the *detect()* method in the YOLOv3 class. Again, it o
 - To use the default *YOLOv3-416* model,
 
 ```
-from PyVision.detection import yolov3
+from pyvision.detection import yolov3
 
 yolo = yolov3.YOLOv3()
 
@@ -42,7 +42,7 @@ imgs, objs = yolo.detect(<img path or img in numpy format>)
 - To use *YOLOv3-tiny* model:
 
 ```
-from PyVision.detection import yolov3
+from pyvision.detection import yolov3
 
 yolo = yolov3.YOLOv3(model="yolov3-tiny")
 
@@ -54,7 +54,7 @@ imgs, objs = yolo.detect(<img path or img in numpy format>)
 - To list supported models,
 
 ```
-from PyVision.detection import yolov3
+from pyvision.detection import yolov3
 
 print(yolov3.available_models())
 ```
