@@ -77,7 +77,7 @@ class YOLOv3:
         if device == "gpu":
             if not torch.cuda.is_available():
                 raise Exception("CUDA not available but received device = 'gpu'")
-            device = "cuda:0"
+            device = "cuda"
         else:
             device = "cpu"
 
@@ -99,7 +99,7 @@ class YOLOv3:
 
         # now we initialize the model 
         try:
-            self.model = Darknet(model, cfg)
+            self.model = Darknet(model, cfg, device=self.device)
             self.model.load_weights()
         except Exception as exp:
             print("ERROR at model init: ", exp)
@@ -174,8 +174,9 @@ class YOLOv3:
         with torch.no_grad():
             preds = self.model(img)
         
-        preds = preds.cpu()
-        preds = postprocess(preds, self.confidence, len(self.classes))
+        #if self.device is "cuda:0" and torch.cuda.is_available():
+            #preds = preds.cpu()
+        preds = postprocess(preds, self.device, self.confidence, len(self.classes))
 
         if type(preds) == int:
             return None, []
@@ -186,6 +187,8 @@ class YOLOv3:
         if self.device is not "cpu":
             torch.cuda.synchronize()
         
+        if self.device is not "cpu":
+            preds = preds.cpu()
 
         orig_dims = torch.index_select(orig_dims, 0, preds[:,0].long())
 

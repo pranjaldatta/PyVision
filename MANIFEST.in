@@ -1,0 +1,7 @@
+include pyvision/detection/yolov3/config/*.cfg
+include pyvision/detection/yolov3/config/*.json
+include pyvision/detection/yolov3/config/*.txt
+include pyvision/detection/yolov3/data/*.names
+include pyvision/detection/yolov3/utils/pallete
+
+recursive-include pyvision *.md

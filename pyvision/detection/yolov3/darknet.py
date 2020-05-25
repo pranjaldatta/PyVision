@@ -39,14 +39,10 @@ class Darknet(nn.Module):
 
         cfg_path = __PREFIX__ + "/config/{}.cfg".format(model_name)
         self.WEIGHTS_PATH = __PREFIX__ + "/weights/{}.weights".format(model_name)
-        #print(cfg_path)
-        #print(self.WEIGHTS_PATH)
         
         self.block_list = parse_config(cfg_path)
         self.device = device
         self.net_info, self.model = make_pipeline(self.block_list, self.device)
-        #print(len(self.block_list))
-        #exit()
 
         # stores info regarding pretrained models.
         # check load_weights function for docs
@@ -101,7 +97,7 @@ class Darknet(nn.Module):
                 file_id = json_file["{}.weights".format(model)]
                        
             url = 'https://drive.google.com/uc?id={}'.format(file_id)
-            gdown.download(url, wtspath)
+            gdown.download(url, wtspath, quiet=False)
             return 0
         else:
             raise FileNotFoundError("Weight file not found.")
@@ -252,10 +248,8 @@ class Darknet(nn.Module):
                 num_classes = int(modules[i]["classes"])
 
                 x = x.data 
-
-                _cuda = True if self.device == "cuda" else False
                 
-                x = predict_transforms(x, input_dims, anchors, num_classes, CUDA=_cuda)
+                x = predict_transforms(x, input_dims, anchors, num_classes, device=self.device)
                 
                 if type(x) == int:
                     continue
@@ -271,6 +265,4 @@ class Darknet(nn.Module):
         try:
             return detections
         except:
-            return 0
-
-        
+            return 0        

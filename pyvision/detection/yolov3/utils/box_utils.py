@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pickle as pkl
 import random
 
-def iou(box1, box2):
+def iou(box1, box2, device):
     """
     calculates iou between two boxes box1 and box2
     """
@@ -22,7 +22,7 @@ def iou(box1, box2):
 
     inter_shape = inter_x1.shape
 
-    if torch.cuda.is_available():
+    if torch.cuda.is_available() and device is not "cpu":
         inter_area = torch.max(inter_x2-inter_x1+1.0, torch.zeros(inter_shape).cuda())*torch.max(inter_y2-inter_y1+1.0, torch.zeros(inter_shape).cuda())
     else:
         inter_area = torch.max(inter_x2-inter_x1+1.0, torch.zeros(inter_shape))*torch.max(inter_y2-inter_y1+1.0, torch.zeros(inter_shape))
@@ -52,3 +52,4 @@ def draw_box(pred, orig_img, cls, colors):
     cv2.rectangle(orig_img, coords1, coords2, color, -1)
     cv2.putText(orig_img, label, (coords1[0], coords1[1]+text_size[1]+4), cv2.FONT_HERSHEY_PLAIN, 1, [255,255,255], 1)
     return orig_img    
+    
