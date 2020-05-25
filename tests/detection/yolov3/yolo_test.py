@@ -1,4 +1,4 @@
-from detection import yolov3
+from pyvision.detection import yolov3
 import time
 
 
