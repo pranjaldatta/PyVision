@@ -1,4 +1,4 @@
 .vscode/
 .DS_Store
 __pycache__/
-detection/yolov3/weights/
+pyvision/detection/yolov3/weights/
