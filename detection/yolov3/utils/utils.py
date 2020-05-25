@@ -14,7 +14,7 @@ def load_classes(path):
         class_names = class_file.read().split("\n")[:-1]
     return class_names
 
-def predict_transforms(preds, input_dims, anchors, n_classes, CUDA=False):
+def predict_transforms(preds, input_dims, anchors, n_classes, device='cpu'):
 
     batch_size = preds.size(0)
     stride = input_dims // preds.size(2)
@@ -38,9 +38,9 @@ def predict_transforms(preds, input_dims, anchors, n_classes, CUDA=False):
     x_offset = torch.FloatTensor(a).view(-1,1)
     y_offset = torch.FloatTensor(b).view(-1,1)
 
-    if CUDA:
-        x_offset = x_offset.cuda()
-        y_offset = y_offset.cuda()
+    
+    x_offset = x_offset.to(device)
+    y_offset = y_offset.to(device)
 
     x_y_offset = torch.cat((x_offset, y_offset), 1).repeat(1, n_anchors)
     x_y_offset = x_y_offset.view(-1, 2).unsqueeze(0)
@@ -48,8 +48,8 @@ def predict_transforms(preds, input_dims, anchors, n_classes, CUDA=False):
     preds[:,:,:2] += x_y_offset
 
     anchors = torch.FloatTensor(anchors)
-    if CUDA:
-        anchors = anchors.cuda()
+    
+    anchors = anchors.to(device)
     
     anchors = anchors.repeat(grid_size*grid_size, 1).unsqueeze(0)
     preds[:,:,2:4] = torch.exp(preds[:,:,2:4])*anchors
@@ -77,7 +77,7 @@ def _unique(t):
 
 
 
-def postprocess(preds, confidence, n_classes, nms=True, nms_conf=0.5):
+def postprocess(preds, device, confidence, n_classes, nms=True, nms_conf=0.5):
     """
     We perform confidence thresholding and nms suppression in this
     method
@@ -130,6 +130,7 @@ def postprocess(preds, confidence, n_classes, nms=True, nms_conf=0.5):
 
         try:
             img_classes = _unique(_image_preds[:,-1])
+            img_classes = img_classes.to(device)
         except:
             continue
 
@@ -153,7 +154,7 @@ def postprocess(preds, confidence, n_classes, nms=True, nms_conf=0.5):
                 for i in range(num_dets):
                     
                     try:
-                        ious = iou(image_pred_class[i].unsqueeze(0), image_pred_class[i+1:])
+                        ious = iou(image_pred_class[i].unsqueeze(0), image_pred_class[i+1:], device)
                     except ValueError:
                         #print("ValueError: at iou calculation")
                         break
@@ -171,6 +172,7 @@ def postprocess(preds, confidence, n_classes, nms=True, nms_conf=0.5):
 
                 
                 batch_inds = torch.zeros(image_pred_class.size(0), 1).fill_(index)
+                batch_inds = batch_inds.to(device)
                 _to_cat = (batch_inds, image_pred_class)
 
                 if not write:
@@ -182,15 +184,3 @@ def postprocess(preds, confidence, n_classes, nms=True, nms_conf=0.5):
 
 
     return output
-
-
-
-
-
-
-    
-
-
-
-
-
