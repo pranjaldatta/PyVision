@@ -7,3 +7,5 @@
 - [ ] **Neural Style Transfer**: Being contributed by [Anushka Chowdhury](https://github.com/Anushka0805) .
 
 - [ ] **Wassertian GAN**: Link to [paper](https://arxiv.org/pdf/1701.07875.pdf). Being contributed by [Paras Rawat](https://github.com/TrizteX).
+
+- [ ] **Noise2Noise**: Link to [paper](https://arxiv.org/pdf/1803.04189.pdf). Being contributed by [Sashrika Surya](https://github.com/sashrika15).
