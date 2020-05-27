@@ -5,7 +5,7 @@ import numpy as np
 from collections import OrderedDict
 import os
 
-WEIGHTS_PATH = os.path.dirname(os.path.abspath(__file__))+"/weights/"
+WEIGHTS_PATH = os.path.dirname(os.path.realpath(__file__))+"/weights/"
 
 
 class FlattenTensorCustom(nn.Module):
