@@ -4,4 +4,6 @@ include pyvision/detection/yolov3/config/*.txt
 include pyvision/detection/yolov3/data/*.names
 include pyvision/detection/yolov3/utils/pallete
 
+include pyvision/misc/mtcnn/config/*.json
+
 recursive-include pyvision *.md

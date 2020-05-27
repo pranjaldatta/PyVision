@@ -19,7 +19,7 @@ Read the paper [here](https://arxiv.org/pdf/1604.02878.pdf).
 To check, from PyVision root, run:
 
 ```
-python tests/mtcnn/mtcnn_test.py
+python tests/misc/mtcnn/mtcnn_test.py
 ```
 
 ## Usage
@@ -27,17 +27,19 @@ python tests/mtcnn/mtcnn_test.py
 This Usage guide assumes that the PyVision repository has already been cloned. If not follow instructions given in PyVision repository root and clone the repository. Then follow the steps listed below:
 
 ```
-from mtcnn.detector import detector
+from pyvision.misc.mtcnn import mtcnn
 from PIL import Image
-from mtcnn.utils.visualize import show_boxes
+from pyvision.misc.mtcnn.utils.visualize import show_boxes
 
 path = <path to image>
 
 img = Image.open(path)
 
-b = detector(img)
+mtcnn = MTCNN()
+boxes = mtcnn.detect(img) # returns bounding boxes
+
 img = show_boxes(img, b)
 img.show()
 ```
 
-For a more detailed usage, check out [mtcnn_test.py](https://github.com/pranjaldatta/PyVision/blob/master/tests/mtcnn/mtcnn_test.py)
+For a more detailed usage, check out [mtcnn_test.py](https://github.com/pranjaldatta/PyVision/blob/master/tests/misc/mtcnn/mtcnn_test.py)
