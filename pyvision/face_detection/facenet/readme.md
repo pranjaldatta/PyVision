@@ -15,7 +15,7 @@ The paper can be read [here](https://arxiv.org/pdf/1503.03832.pdf).
 
 ## Quick Usage
 
-Check demo.
+Check [demo](https://github.com/pranjaldatta/PyVision/tree/master/demo/face_detection/facenet).
 
 ## Usage
 
@@ -61,7 +61,7 @@ A few things to note regarding the function:
 did_match, pred_label, l2_loss = fc.compare_embeddings(...)
 ```
 
-- For more details look tests.
+- For more details look [tests](https://github.com/pranjaldatta/PyVision/tree/master/tests/face_detection/facenet).
 
 ## Note
 While implementing the pretrained models, it was found that often in many cases classifications were not accurate. So it is recommended that care is taken while using facenet.
