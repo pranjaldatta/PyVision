@@ -24,7 +24,7 @@ $ git clone https://github.com/pranjaldatta/PyVision.git --single-branch --branc
 2. Then, go to the repository root by pasting the command given below into your terminal
 
 ```
-$ cd
+$ cd PyVision
 ```
 
 3. Run the following command in the terminal to install PyVision into the current virtual or conda environment
