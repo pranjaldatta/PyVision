@@ -6,4 +6,6 @@ include pyvision/detection/yolov3/utils/pallete
 
 include pyvision/misc/mtcnn/config/*.json
 
+include pyvision/face_detection/facenet/config/*.json
+
 recursive-include pyvision *.md

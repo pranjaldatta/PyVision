@@ -2,7 +2,7 @@ from .utils.utils import preprocess
 import numpy as np
 from PIL import Image
 from .utils.visualize import show_boxes
-from colorama import Fore
+
 
 def get_image_boxes(bounding_boxes, img, size=24):
 

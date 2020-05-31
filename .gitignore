@@ -3,4 +3,5 @@
 __pycache__/
 pyvision/detection/yolov3/weights/
 pyvision/misc/mtcnn/weights/
+pyvision/face_detection/facenet/weights/
 
