@@ -10,4 +10,4 @@
 
 - [ ] **Noise2Noise**: Link to [paper](https://arxiv.org/pdf/1803.04189.pdf). Being contributed by [Sashrika Surya](https://github.com/sashrika15).
 
-- [ ] **FaceNet**: Link to [paper](https://arxiv.org/pdf/1503.03832.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta)
+- [x] **FaceNet**: Link to [paper](https://arxiv.org/pdf/1503.03832.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta)
