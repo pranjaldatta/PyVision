@@ -7,9 +7,9 @@ In PyTorch only!
 
 ## Currently available architectures
 
-- **Multi Task Cascaded Convolutional Neural Network (MTCNN)** : A SOTA face and facial-landmark detection architecture. Check out [this](https://github.com/pranjaldatta/PyVision/blob/master/mtcnn/README.md) out for more details.
+- **Multi Task Cascaded Convolutional Neural Network (MTCNN)** : A SOTA face and facial-landmark detection architecture. Check out [this](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/misc/mtcnn) out for more details.
 
-- **YOLOv3:** The SOTA object detection algorithm. For more details, read the [docs](https://github.com/pranjaldatta/PyVision/blob/master/detection/yolov3/readme.md).
+- **YOLOv3:** The SOTA object detection algorithm. For more details, read the [docs](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/detection/yolov3).
 
 - **FaceNet: A Unified Embedding for Face Recognition and Clustering**: One of the most popular architectures used for facial recognition. For more details, check [here](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/face_detection/facenet).
 
