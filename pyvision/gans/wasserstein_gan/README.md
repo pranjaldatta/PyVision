@@ -32,13 +32,13 @@ This is an important step because we will be using the ImageFolder dataset class
 #### Usage
 
 ```python 
-from model import GAN
+from model import WassGAN
 
 # To train the GAN with default parameters
-GAN(run_type="train") 
+WassGAN(run_type="train") 
 
 # To run inference using the GAN
-GAN() 
+WassGAN() 
 ```
 
 #### Train
