@@ -1,8 +1,11 @@
-# WGAN
+# Wasserstein GAN
 
-This is a PyTorch 1.5.0 implementation of WGAN 
+This is a PyTorch 1.5.0 implementation of WGAN.
 
-#### Requirements: 
+Check out the paper [here](https://arxiv.org/pdf/1701.07875.pdf).
+
+**Requirements:**
+
 1. Python 3.6+ 
 2. Numpy 1.18.5
 3. PyTorch 1.5+
@@ -10,7 +13,8 @@ This is a PyTorch 1.5.0 implementation of WGAN
 5. Matplotlib 3.2.1
 6. CUDA - 10.1
 
-#### Dataset
+**Dataset**
+
 CelebA was used for the training of this model, which can be downloaded at [this httpURL](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html). 
 
 1. If you wish to use your own dataset, the structure should be "datasets/sub_dir/img.png". The dataset will download as a file named img_align_celeba.zip.
@@ -29,7 +33,7 @@ CelebA was used for the training of this model, which can be downloaded at [this
 
 This is an important step because we will be using the ImageFolder dataset class, which requires there to be subdirectories in the dataset�s root folder.
 
-#### Usage
+**Usage**
 
 ```python
 from model import WassGAN
@@ -41,7 +45,7 @@ WassGAN(run_type="train")
 WassGAN()
 ```
 
-#### Train
+**Train**
 
 To train on your own dataset:
 
