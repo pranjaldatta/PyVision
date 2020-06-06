@@ -7,10 +7,12 @@ import numpy as np
 import argparse
 import os
 import subprocess as sp
-from wgan import *
+from .wgan import *
 import json
 import gdown
-from train import *
+from .train import *
+
+__PREFIX__ = os.path.dirname(os.path.realpath(__file__))
 
 class WassGAN:
 
@@ -40,6 +42,8 @@ class WassGAN:
     
     def inference(self, set_ckpt_dir="WGAN-gen.pt", set_gen_dir="gen", device="cpu"):
 
+        set_ckpt_dir = __PREFIX__ + "/weights/" + set_ckpt_dir
+        
         if device is not "cpu":
 
             if not torch.cuda.is_available():
@@ -67,10 +71,12 @@ class WassGAN:
                 download_weights()
 
         def download_weights():
-            with open("config/weights_download.json") as fp:
+            with open(__PREFIX__+"/config/weights_download.json") as fp:
                 json_file = json.load(fp)
+                if not os.path.exists(__PREFIX__+"/weights/"):
+                    os.mkdir(__PREFIX__+"/weights/")
                 url = 'https://drive.google.com/uc?id={}'.format(json_file['WGAN-gen.pt'])
-                gdown.download(url, "WGAN-gen.pt", quiet=False)
+                gdown.download(url, __PREFIX__+"/weights/WGAN-gen.pt", quiet=False)
                 set_ckpt_dir = "WGAN-gen.pt"
                 print("Download finished")
 

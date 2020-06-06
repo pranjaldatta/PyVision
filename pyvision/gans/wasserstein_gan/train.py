@@ -6,8 +6,8 @@
 
 from __future__ import print_function
 import importlib
-wgan = importlib.import_module("wgan")
-from wgan import WGAN, Generator, Discriminator, batch_size, dataroot
+#wgan = importlib.import_module("wgan")
+from .wgan import WGAN, Generator, Discriminator, batch_size, dataroot
 import torch
 import os
 import torch.nn as nn
