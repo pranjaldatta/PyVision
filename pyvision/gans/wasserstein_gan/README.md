@@ -1,5 +1,4 @@
-# MIC Project 1: Contribution to PyVision
-### WGAN
+# WGAN
 
 This is a PyTorch 1.5.0 implementation of WGAN 
 
