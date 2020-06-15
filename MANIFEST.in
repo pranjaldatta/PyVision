@@ -4,6 +4,10 @@ include pyvision/detection/yolov3/config/*.txt
 include pyvision/detection/yolov3/data/*.names
 include pyvision/detection/yolov3/utils/pallete
 
+include pyvision/detection/detr/utils/pallete
+include pyvision/detection/detr/config/*.json
+include pyvision/detection/detr/data/*.txt
+
 include pyvision/misc/mtcnn/config/*.json
 
 include pyvision/face_detection/facenet/config/*.json
