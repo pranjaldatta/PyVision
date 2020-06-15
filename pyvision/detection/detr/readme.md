@@ -12,8 +12,8 @@ Currently, PyVision DETR supports the models listed below. The pretrained models
 
 *Note:* Panoptic models are being added.
 
-| Model     | Train Dataset| Test Dataset | box AP | Available |
---------|------------|------|---|----|-----|
+| Model| Train Dataset| Test Dataset | box AP | Available |
+|--------|------------|------|---|----|
 | DETR-Resnet50 (default) | COCO2017-val5k | COCO2017-val5k | 42.0 | Yes |
 | DETR-Resnet101 | COCO2017-val5k | COCO2017-val5k | 43.5 | Yes
 
