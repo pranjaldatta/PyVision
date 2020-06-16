@@ -13,6 +13,8 @@ In PyTorch only!
 
 - **FaceNet: A Unified Embedding for Face Recognition and Clustering**: One of the most popular architectures used for facial recognition. For more details, check [here](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/face_detection/facenet).
 
+- **DEtection TRansformer (DETR)**: An end-to-end object detection architecture using transformers. For more details, check [here](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/detection/detr).
+
 For full list of architectures that has been ported or are **in the process** of being ported, check [here](https://github.com/pranjaldatta/PyVision/blob/master/docs/developing.md).
 
 ## Installation
