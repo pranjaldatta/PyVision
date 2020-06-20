@@ -34,7 +34,7 @@ def available_models():
 class DETR(object):
 
     def __init__(self, model="detr-resnet50", wtspath="weights/", conf_thresh=0.7,
-                device="cpu", save=None, show=True, classfile="data/classes.txt", 
+                device="cpu", save=None, show=True, draw=True, classfile="data/classes.txt", 
                 colors="utils/pallete", annotate=True, pretrained=True):
         """
         The Detection Transformer (DETR) Module. One of the most interesting papers to come out 
@@ -58,6 +58,8 @@ class DETR(object):
             - save (default: None): path to save images with detections drawn in
 
             - show (default: True): show the images with detections drawn
+
+            - draw (default: True): draw the detections on the image
 
             - classfile (default: data/classes.txt): path to file containing class names (must include N/As)
 
@@ -87,6 +89,7 @@ class DETR(object):
         self.device = "cuda" if self.device is not "cpu" else "cpu"
         self.conf_thresh = conf_thresh
         self.annotate = annotate
+        self.draw = draw
 
         self.class_names = self._load_classes(os.path.join(__PREFIX__, classfile))
         self.colors = self._load_pickle(os.path.join(__PREFIX__, colors))
@@ -107,7 +110,7 @@ class DETR(object):
         # now we load the pretrained model
         checkpoint = torch.load(self.wtspath)
         self.model.load_state_dict(checkpoint["model"])
-        print("load complete")
+        #print("load complete")
 
         self.transform = T.Compose([
             T.Resize(800),
@@ -158,7 +161,7 @@ class DETR(object):
 
     def _build_detr_model(self, conf_thresh=0.7, num_classes=91):
         
-        print("building detr model..")
+        #print("building detr model..")
         model_details = self.model_name.split("-")
         backbone_name = model_details[1]
         try:
@@ -208,7 +211,7 @@ class DETR(object):
         return orig_img, x
     
 
-    def detect(self, img, show=None, save=None):
+    def detect(self, img, show=None, save=None, draw=None):
         """ 
         Run object detection on a given image. 
 
@@ -219,6 +222,8 @@ class DETR(object):
             - save (default: None): Overrides the "save" param at module init
 
             - show (default: None): Overrides the "show" param at module init
+
+            - draw (default: None): Overrides the "draw" param at module init
 
         Returns:
 
@@ -243,6 +248,8 @@ class DETR(object):
             save = self.save
         if show is None:
             show = self.show
+        if draw is None:
+            draw = self.draw
 
         img_w, img_h = orig_img.size
         target_size = torch.Tensor([img_h, img_w])
@@ -260,7 +267,7 @@ class DETR(object):
         
         #results = clamp(results, img_h, img_w) # giving wierd results
 
-        if show:
+        if show or draw:
             orig_img = np.array(orig_img)
             orig_img = cv2.cvtColor(orig_img, cv2.COLOR_RGB2BGR)
         
@@ -271,12 +278,13 @@ class DETR(object):
         
             orig_img = cv2.cvtColor(orig_img, cv2.COLOR_BGR2RGB)
             orig_img = Image.fromarray(orig_img)
-            orig_img.show()
+            if show:
+                orig_img.show()
 
-            if save is not None:
+            if save is not None and save is not False:
                 orig_img.save(save)
             
-            return end_time, results
+            return end_time, orig_img, results
         else:
             return end_time, results
 

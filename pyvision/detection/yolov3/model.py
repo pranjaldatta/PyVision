@@ -45,6 +45,8 @@ class YOLOv3:
     
     - show (default: True): show the image with the detections
 
+    - draw (default: True): draw the boxes and return image with boxes drawn
+
     - device (default: cpu): device to run inference on
 
     - model (default: yolov3): default model to run. (use available_models() to see supported models)
@@ -65,7 +67,7 @@ class YOLOv3:
 
     def __init__(self, save=None, show=True, device="cpu", model="yolov3", 
         cfg="config/yolov3.cfg", classfile="data/coco.names", colors="utils/pallete", 
-        confidence=0.5, nms_thresh=0.4, reso=416, scales=[1,2,3]):     
+        draw=True, confidence=0.5, nms_thresh=0.4, reso=416, scales=[1,2,3]):     
         
 
         if save is None and show is None:
@@ -90,6 +92,7 @@ class YOLOv3:
         self.scales = scales
         self.classes = load_classes(__PREFIX__+"/"+classfile)
         self.colors = pickle.load(open(__PREFIX__+"/"+colors, "rb"))
+        self.draw = draw
 
         # now set the model to be used. The available models
         # are defined in __models__
@@ -109,7 +112,7 @@ class YOLOv3:
         self.model = self.model.to(device)
     
 
-    def detect(self, img, save=None, show=None):
+    def detect(self, img, save=None, show=None, draw=None):
         r"""
         The main method to run yolov3 inference on a given image.
 
@@ -121,12 +124,14 @@ class YOLOv3:
                     
         -show (default: None): whether to show the detection. Overides value set during class initialization.
 
+        -draw (default: None): whether to show the image with boxes drawn. Overides value set during class initialization.
+
         Return:
 
         - a tuple of the image on which the bouding boxes are drawn and a list of
           dictionaries containing all detection info 
         
-        - returned as (img, list)
+        - returned as (time_taken, img, list) or (time_taken, list)
 
         - img (dtype: np.ndarray): image on which detections are drawn.
         
@@ -143,7 +148,9 @@ class YOLOv3:
         if save is None:
             save = self.save
         if show is None:
-            show = self.show        
+            show = self.show   
+        if draw is None:
+            draw = self.draw
    
 
         if isinstance(img, str):
@@ -208,7 +215,10 @@ class YOLOv3:
             preds[i, [1, 3]] = torch.clamp(preds[i, [1, 3]], 0.0, orig_dims[i, 0])
             preds[i, [2, 4]] = torch.clamp(preds[i, [2, 4]], 0.0, orig_dims[i, 1])
 
-        result = list(map(lambda pred, _cls: draw_box(pred, orig_img, _cls, self.colors), preds, det_cls))[0]
+        end_time = time.time()
+
+        if draw:
+            result = list(map(lambda pred, _cls: draw_box(pred, orig_img, _cls, self.colors), preds, det_cls))[0]
 
         # we also generate a list of dictionary object that stores all necessary information
         # and we return it so it can be furthur used
@@ -225,7 +235,10 @@ class YOLOv3:
             if cv2.waitKey() == ord('q'):
                 cv2.destroyAllWindows()
         
-        if save is not None:
+        if save is not None and save is not False:
+            
+            if draw is False:
+                result = list(map(lambda pred, _cls: draw_box(pred, orig_img, _cls, self.colors), preds, det_cls))[0]
             try:
                 img_name
                 img_name = "det_"+img_name
@@ -234,4 +247,9 @@ class YOLOv3:
                 img_name = "detection.jpg"
             cv2.imwrite(os.path.join(save, img_name), result)
 
-        return result, objs
+        time_taken = end_time - start_time
+
+        if draw:
+            return time_taken, result, objs
+        else:
+            return time_taken, objs
