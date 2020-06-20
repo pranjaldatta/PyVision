@@ -240,7 +240,8 @@ class DETR(object):
             else:
                 raise FileNotFoundError("2",img)
         elif isinstance(img, np.ndarray):
-            pass
+            img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+            orig_img, img = self._convert_to_tensor(img)
         elif isinstance(img, Image.Image):
             orig_img, img = self._convert_to_tensor(img)
         
