@@ -162,8 +162,7 @@ class YOLOv3:
         elif isinstance(img, np.ndarray):
             pass
         elif isinstance(img, Image.Image):
-            img = np.array(img)
-            img = img[:,:,::-1]
+            img = cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
 
         # add more checks later
     
