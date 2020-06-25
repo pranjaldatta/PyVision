@@ -22,6 +22,7 @@ class NoisyDataset(Dataset):
         self.imgs = []
         self.crop_size = 320
         self.noise = noise
+
         for file in os.listdir(data_dir):
             if file.endswith(".jpg"):
                 self.imgs.append( os.path.join(data_dir,file))
@@ -94,16 +95,18 @@ class NoisyDataset(Dataset):
         '''
         Compiles dataset
         '''
-       
+        
         img =  Image.open(self.imgs[index]).convert('RGB')
         resized_img = self.crop_image(img)
 
         if self.noise == 'text':
             source = tvf.to_tensor(self.add_text(resized_img))
+            target = tvf.to_tensor(self.add_text(resized_img))
         else:
             source = tvf.to_tensor(self.gaussian_noise(resized_img))
+            target = tvf.to_tensor(self.gaussian_noise(resized_img))
         
-        return source
+        return source,target
 
 
  
