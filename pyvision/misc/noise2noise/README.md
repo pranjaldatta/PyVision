@@ -1,4 +1,4 @@
-# noise2noise# Noise2Noise
+# Noise2Noise
 
 This is a PyTorch implementation of Noise2Noise. 
 
