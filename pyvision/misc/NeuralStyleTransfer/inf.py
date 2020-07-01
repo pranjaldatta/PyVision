@@ -1,6 +1,6 @@
 #to run
 
-from neural_style import Neural_Style
+from pyvision.misc.NeuralStyleTransfer.neural_style import Neural_Style
 
 #provide the paths to the two images
 style_img, content_img = ('images/style1.jpg', 'images/content1.jpg')
