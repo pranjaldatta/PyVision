@@ -24,3 +24,9 @@ output = nst.run_style_transfer(style_img, content_img)
 
 nst.imshow(output)
 
+## Here are some of the results
+Output Images:
+
+![Output1](https://github.com/pranjaldatta/PyVision/blob/nst/pyvision/misc/NeuralStyleTransfer/output/content1%2Bstyle6.png)
+![Output2](https://github.com/pranjaldatta/PyVision/blob/nst/pyvision/misc/NeuralStyleTransfer/output/content4%2Bstyle1.png)
+![Output3](https://github.com/pranjaldatta/PyVision/blob/nst/pyvision/misc/NeuralStyleTransfer/output/content6%2Bstyle7.png)
