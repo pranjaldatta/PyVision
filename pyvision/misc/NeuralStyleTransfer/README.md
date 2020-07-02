@@ -39,11 +39,11 @@ output, time_taken = nst.run_style_transfer(style_img, content_img)
 
 ## Examples
 
-For more examples, check [Examples](https://github.com/pranjaldatta/PyVision/tree/master/pyvision/misc/NeuralStyleTransfer/Examples).
+For more examples, check [Examples](https://github.com/pranjaldatta/PyVision/tree/nst/pyvision/misc/NeuralStyleTransfer/Examples).
 
 Content Image | Style Image | Result |
 :-------------: | :---------: | :-----: |
-<img src="Examples/images/content2.jpg" height=100 width=100>| <img src="Examples/images/style1.jpg" height=100 width=100>| <img src="Examples/output/content2+style1.png" height=100 width=100> |
-<img src="Examples/images/content5.jpg" height=100 width=100>| <img src="Examples/images/style1.jpg" height=100 width=100>| <img src="Examples/output/content5+style1.png" height=100 width=100> |
-<img src="Examples/images/content6.jpeg" height=100 width=100>| <img src="Examples/images/style7.jpg" height=100 width=100>| <img src="Examples/output/content6+style7.png" height=100 width=100> |
+<img src="Examples/images/content2.jpg" height=200 width=200>| <img src="Examples/images/style1.jpg" height=200 width=200>| <img src="Examples/output/content2+style1.png" height=200 width=200> |
+<img src="Examples/images/content5.jpg" height=200 width=200>| <img src="Examples/images/style1.jpg" height=200 width=200>| <img src="Examples/output/content5+style1.png" height=200 width=200> |
+<img src="Examples/images/content6.jpeg" height=200 width=200>| <img src="Examples/images/style7.jpg" height=200 width=200>| <img src="Examples/output/content6+style7.png" height=200 width=200> |
 
