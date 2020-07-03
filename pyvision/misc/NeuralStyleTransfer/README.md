@@ -7,15 +7,17 @@ The idea is to extract the _content_ from one image, the 'content image', and th
 
 ## A Few details about the implementation
 
-- By default, for computation reasons, both style and content image are resized to 512x512 if using a GPU or 128x128 if on a CPU. If the *retain_dims* is set to True, the output is UPSAMPLED to original content image dimensions but this upsampling especially for 128x128 images reduces quality.
+- By default, due to computational limitations, both style and content images are resized to 512x512 if using a GPU or 128x128 if on a CPU. If the *retain_dims* is set to True, the output is **UPSAMPLED** to the original content image dimensions but this upsampling especially for 128x128 images reduces quality.
 
-- This behavior can be disabled by setting the param *downsample* to False. This ensures that the style image is resized to the size of the content image and style transfer is run with original content image dimensions. **Note**: This would be computationally expensive so it is recommended to use GPU.
+- This behavior can be disabled by setting the param *downsample* to False. This ensures that the style image is resized to the size of the content image and style transfer is run with original content image dimensions. 
+
+**Note**: Using Neural Style Transfer is computationally expensive so it is recommended to use GPU for optimal timing.
 
 ## Quick Start
 
 - Using default settings, to run style transfer on a CPU or GPU
 
-```
+```python
 from pyvision.misc.NeuralStyleTransfer import NeuralStyle
 
 style_img, content_img = (<path to style img or style img>, 'path to content img or content img')
@@ -27,7 +29,7 @@ output, time_taken = nst.run_style_transfer(style_img, content_img)
 
 - To disable downsampling and run style transfer on original content image dimensions,
 
-```
+```python
 from pyvision.misc.NeuralStyleTransfer import NeuralStyle
 
 style_img, content_img = (<path to style img or style img>, 'path to content img or content img')
