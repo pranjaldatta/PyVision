@@ -54,3 +54,5 @@ For contribution guidelines, please look [here](https://github.com/pranjaldatta/
 ## Note
 
 Currently, its working only in pre-configured conda environment with all dependencies installed.
+
+**P.S.** Star the repo if you liked the work!
