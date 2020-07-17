@@ -6,6 +6,10 @@ Check out [usage](#Usage) to start using DETR or check [summary](#Summary) for i
 
 Do check out the [paper](https://scontent.fccu3-1.fna.fbcdn.net/v/t39.8562-6/101177000_245125840263462_1160672288488554496_n.pdf?_nc_cat=104&_nc_sid=ae5e01&_nc_ohc=sU420_xbxT8AX9LfbKI&_nc_ht=scontent.fccu3-1.fna&oh=455f6284084dfccdf0b9b39a878d290f&oe=5F0EB147) or visit the original GitHub [repository](https://github.com/facebookresearch/detr?fbclid=IwAR3Eqm_JaWigPZfi5Uk3Pdi24u_Y198n2twoTSvYnn22XmiBAN92lC3TgYA). (The visit is worth it! Not only they outline their approach in detail but also they demonstrate through a [colab notebook](https://colab.research.google.com/github/facebookresearch/detr/blob/colab/notebooks/detr_demo.ipynb) how easy it is to make your own DETR in approx. 50 pytorch lines!)
 
+
+Check out this standalone [notebook](https://github.com/pranjaldatta/PyVision/blob/master/demo/detection/detr/detr_demo.ipynb) to see how easily you can use YOLOv3 in 3-4 lines!
+If the notebook link doesn't work, please look [here](https://nbviewer.jupyter.org/github/pranjaldatta/PyVision/blob/master/demo/detection/detr/detr_demo.ipynb) as a workaround.
+
 ## Summary
 
 Currently, PyVision DETR supports the models listed below. The pretrained models were provided by the authors. More details can be accessed [here](https://github.com/facebookresearch/detr?fbclid=IwAR3Eqm_JaWigPZfi5Uk3Pdi24u_Y198n2twoTSvYnn22XmiBAN92lC3TgYA).

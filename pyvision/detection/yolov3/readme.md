@@ -8,6 +8,8 @@ Do check out their [website](https://pjreddie.com/darknet/yolo/) or read the [pa
 
 Check out this standalone [notebook](https://github.com/pranjaldatta/PyVision/blob/master/demo/detection/yolov3/yolov3_demo.ipynb) to see how easily you can use YOLOv3 in 3-4 lines!
 
+If the above link does not work, please look [here](https://nbviewer.jupyter.org/github/pranjaldatta/PyVision/blob/master/demo/detection/yolov3/yolov3_demo.ipynb).
+
 ## Summary
 
 Currently, PyVision YOLOv3 supports the model listed below. The pretrained models were provided by the author. More details can be accessed [here](https://pjreddie.com/darknet/yolo/).

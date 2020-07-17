@@ -7,6 +7,8 @@ Check the [summary](#summary) for implementation details or [Usage](#Usage) for 
 
 Check out this [notebook](https://github.com/pranjaldatta/PyVision/blob/master/demo/segmentation/pspnet/pspnet_demo.ipynb) to see how easily you can use PSPNet in 3-4 lines!
 
+If the above link does not work, please look [here](https://nbviewer.jupyter.org/github/pranjaldatta/PyVision/blob/master/demo/segmentation/pspnet/pspnet_demo.ipynb).
+
 ## Summary
 
 This implementation makes use of pretrained models provided by the authors [here](https://github.com/hszhao/semseg). Currently, PyVision PSPNet supports the models listed below.
