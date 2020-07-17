@@ -5,4 +5,5 @@ pyvision/detection/yolov3/weights/
 pyvision/misc/mtcnn/weights/
 pyvision/face_detection/facenet/weights/
 pyvision/detection/detr/weights/
-
+pyvision/segmentation/pspnet/weights/
+test.py

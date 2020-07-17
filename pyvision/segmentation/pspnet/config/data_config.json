@@ -1,0 +1,12 @@
+{
+    "voc2012": {
+        "classes": "21"
+    },
+    "ade20k" : {
+        "classes": "150"
+    },
+    "cityscapes" : {
+        "classes" : "19"
+    }
+
+}
