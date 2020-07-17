@@ -5,6 +5,8 @@ PSPNet is an Image segmentation architecture that achieves high degrees of perfo
 Read the paper [here](https://arxiv.org/pdf/1612.01105.pdf).
 Check the [summary](#summary) for implementation details or [Usage](#Usage) for Usage details.
 
+Check out this [notebook](https://github.com/pranjaldatta/PyVision/blob/master/demo/segmentation/pspnet/pspnet_demo.ipynb) to see how easily you can use PSPNet in 3-4 lines!
+
 ## Summary
 
 This implementation makes use of pretrained models provided by the authors [here](https://github.com/hszhao/semseg). Currently, PyVision PSPNet supports the models listed below.
