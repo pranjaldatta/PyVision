@@ -156,7 +156,9 @@ class PSPNet(object):
             self._load_weights()
             self.model.eval()
             
-
+    def class_names(self):
+        return self.class_names
+        
     def _check_or_download_weights(self, wtspath):
 
         if os.path.join(__PREFIX__, "weights") not in wtspath and not os.path.exists(wtspath):

@@ -20,7 +20,13 @@ This implementation makes use of pretrained models provided by the authors [here
 
 ### Note regarding Implementation
 
-**downsampling**: The network as trained by the authors operate on Input images rescaled to 473x473. But when run without gpu, this configuration is computationally intensive. To resolve this situation, the implementation automatically downsamples the input image to a much smaller resolution of 225x225 **if** gpu is not available. On the other hand, **if** a gpu is available, this downsampling behavior is prevented. If explicitly needed, the user can overide this default behavior by passing a boolean (True or False) to the **downsample** parameter in the *PSPNet* constructor. (i.e. if downsample=True, downsampling behavior is enabled and vice versa)
+**Downsampling**: The network as trained by the authors operate on Input images rescaled to 473x473. But when run without gpu, this configuration is computationally intensive. To resolve this situation, the implementation automatically downsamples the input image to a much smaller resolution of 225x225 **if** gpu is not available. On the other hand, **if** a gpu is available, this downsampling behavior is prevented. If explicitly needed, the user can overide this default behavior by passing a boolean (True or False) to the **downsample** parameter in the *PSPNet* constructor. (i.e. if downsample=True, downsampling behavior is enabled and vice versa)
+
+**Class Names**: Often the user may just want the pixel wise prediction matrix (wherein every value in the matrix denotes the *index* of the class to which the corresponding pixel belongs), in that case, the user would also need the *class names* list on which the indices are based. To get that simply do, 
+
+```python
+classlist = model.class_names()
+```
 
 ## Usage
 
