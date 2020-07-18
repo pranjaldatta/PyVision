@@ -5,6 +5,10 @@ The paper can be read [here](https://arxiv.org/pdf/1508.06576.pdf).
 
 The idea is to extract the _content_ from one image, the 'content image', and the _style_ or _texture_ from another image, the 'style image', to get a single output which has a combination of the two.
 
+To check out a notebook demonstrating how you can use the Neural Style Transfer Module in 3 lines, check [here](https://github.com/pranjaldatta/PyVision/blob/master/demo/misc/NeuralStyleTransfer/nst_demo.ipynb).
+
+If the link above does not work check [here](https://nbviewer.jupyter.org/github/pranjaldatta/PyVision/blob/master/demo/misc/NeuralStyleTransfer/nst_demo.ipynb).
+
 ## A Few details about the implementation
 
 - By default, due to computational limitations, both style and content images are resized to 512x512 if using a GPU or 128x128 if on a CPU. If the *retain_dims* is set to True, the output is **UPSAMPLED** to the original content image dimensions but this upsampling especially for 128x128 images reduces quality.
