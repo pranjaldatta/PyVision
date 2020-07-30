@@ -10,23 +10,35 @@ import json
 from .unet import Unet
 from .dataset import NoisyDataset
 from PIL import Image
+import numpy as np
 
 root_dir = os.path.dirname(os.path.realpath(__file__))
+
+__modes__ = ["train", "test", "inference"]
+__noises__ = ["gaussian", "text"]
 
 class Noise2Noise:
     '''
     Noise2Noise class. 
     '''
-    def __init__(self,data_path,noise,show=False,mode='inference'):
+    def __init__(self, noise, data_path="", show=False, mode='inference'):
         '''
         Initialise class
         '''
+
+        if noise not in __noises__:
+            raise ValueError("{} not supported".format(noise))
+        if mode not in __modes__:
+            raise ValueError("{} not supported".format(mode))
+
+
         print("Initialising Noise2Noise Model")
         self.show = show
         self.noise = noise
         self.data_path = data_path
         self.mode = mode
         self.crop_size = 320
+
 
         if torch.cuda.is_available():
             self.map_location = 'cuda'
@@ -42,11 +54,14 @@ class Noise2Noise:
             print("Error at {}".format(err))
             exit()
         
-        if mode=='inference':
+        if mode=='test':
             imgs = self.format_data(data_path)  
             self.save_path = self.save_path()  
             self.check_weights()
-            self.inference(imgs)
+            self.model.eval()
+            self.test(imgs)
+        if mode == "inference":
+            self.model.eval()
         else:
             self.loss = nn.MSELoss()
             self.optim = Adam(self.model.parameters(),lr=1e-3)
@@ -94,6 +109,7 @@ class Noise2Noise:
  
     
     def load_model(self):   
+        self.check_weights()
         ckpt_dir = root_dir + "/weights/n2n-{}.pt".format(self.noise)
         self.model.load_state_dict(torch.load(ckpt_dir, self.map_location))
 
@@ -128,7 +144,7 @@ class Noise2Noise:
      
         return img
 
-    def inference(self,imgs):
+    def test(self,imgs):
         '''
         Inference of model
         Input: path to directory containing images
@@ -167,3 +183,40 @@ class Noise2Noise:
                 self.optim.zero_grad()
                 loss.backward()
                 self.optim.step()
+
+    def inference(self, img, save=None, show=None):
+
+        if isinstance(img, str):
+            if os.path.exists(img):
+                img_name = os.path.basename(img)
+                img = Image.open(img)
+            else:
+                raise FileNotFoundError("2",img)
+        elif isinstance(img, np.ndarray):
+            img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        elif isinstance(img, Image.Image):
+            pass 
+        
+        img = img.resize((512, 512))
+
+        noisy_source = torch.unsqueeze(tvf.to_tensor(img), dim=0)
+        
+        denoised_source = self.model(noisy_source)
+
+        denoised_source = torch.squeeze(denoised_source, dim=0)
+
+        if show or save is not None and not False:
+            denoised_source = tvf.to_pil_image(denoised_source)
+
+        if save is not None and save is not False:
+            denoised_source.save(save)
+        if show :
+            print("show: ", show)
+            denoised_source.show()
+       
+        return denoised_source
+
+
+
+
+        
