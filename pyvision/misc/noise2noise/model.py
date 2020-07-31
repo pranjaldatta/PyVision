@@ -11,6 +11,9 @@ from .unet import Unet
 from .dataset import NoisyDataset
 from PIL import Image
 import numpy as np
+import random
+from PIL import Image, ImageDraw, ImageFont
+from string import ascii_letters
 
 root_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -60,8 +63,9 @@ class Noise2Noise:
             self.check_weights()
             self.model.eval()
             self.test(imgs)
-        if mode == "inference":
+        elif mode == "inference":
             self.model.eval()
+         
         else:
             self.loss = nn.MSELoss()
             self.optim = Adam(self.model.parameters(),lr=1e-3)
@@ -69,11 +73,12 @@ class Noise2Noise:
                 factor=0.5, verbose=True)
             train_loader = self.load_dataset(data_path)
             self.train(train_loader)
-
+        
 
     def format_data(self,data_path):
         imgs_path = []
         imgs = []
+        
         for file in os.listdir(data_path):
             if file.endswith(".jpg") or file.endswith(".png"):
                 imgs_path.append( os.path.join(data_path,file))
@@ -144,17 +149,51 @@ class Noise2Noise:
      
         return img
 
+    def gaussian_noise(self,img):
+       
+        w,h = img.size
+        c = len(img.getbands())
+
+        sigma = np.random.uniform(20,50)
+        gauss = np.random.normal(10,sigma,(h,w,c))
+        noisy = np.array(img) + gauss
+        
+        #Values less than 0 become 0 and more than 255 become 255
+        noisy = np.clip(noisy, 0, 255).astype(np.uint8)
+        img = Image.fromarray(noisy)
+
+        return img
+    
+    def add_text(self,img):
+       
+        w,h = img.size
+        c = len(img.getbands())
+        im = img.copy()
+        draw = ImageDraw.Draw(im)
+        for i in range(random.randint(5,15)):
+            font_type = ImageFont.truetype(font='Arial.ttf',size=np.random.randint(10,20))
+            len_text = np.random.randint(4,20)
+            text = ''.join(random.choice(ascii_letters) for i in range(len_text))
+            x = np.random.randint(0,w)
+            y = np.random.randint(0,h)
+            col = tuple(np.random.randint(0,255,c))
+            draw.text((x,y),text,fill=col,font=font_type)
+
+        return im
+
     def test(self,imgs):
         '''
-        Inference of model
-        Input: path to directory containing images
-        Input: test_loader: Dataloader object
+        Input: List of images
         '''
 
         source_imgs = []
         denoised_imgs = []   
 
         for source in imgs:
+            if self.noise == 'gaussian':
+                source = self.gaussian_noise(source)
+            else:
+                source = self.add_text(source)
             source_imgs.append(source)
             source = torch.unsqueeze(tvf.to_tensor(source),dim=0)
             output = self.model(source)
@@ -186,6 +225,7 @@ class Noise2Noise:
 
     def inference(self, img, save=None, show=None):
 
+        print("Running inference")
         if isinstance(img, str):
             if os.path.exists(img):
                 img_name = os.path.basename(img)
@@ -197,12 +237,16 @@ class Noise2Noise:
         elif isinstance(img, Image.Image):
             pass 
         
-        img = img.resize((512, 512))
 
-        noisy_source = torch.unsqueeze(tvf.to_tensor(img), dim=0)
-        
+        if self.noise=='gaussian':
+            img = self.gaussian_noise(img)
+        else:
+            img = self.add_text(img)
+        img = img.resize((320, 320))
+        img.save("Noised.png")
+
+        noisy_source = torch.unsqueeze(tvf.to_tensor(img), dim=0) 
         denoised_source = self.model(noisy_source)
-
         denoised_source = torch.squeeze(denoised_source, dim=0)
 
         if show or save is not None and not False:
@@ -210,13 +254,10 @@ class Noise2Noise:
 
         if save is not None and save is not False:
             denoised_source.save(save)
-        if show :
-            print("show: ", show)
+
+        if show:
+            print("Show: ", show)
             denoised_source.show()
        
         return denoised_source
-
-
-
-
         
