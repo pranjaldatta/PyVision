@@ -1,7 +1,7 @@
-# Noise2Noise
+# Noise2Noise: Learning Image Restoration without Clean Data
 
 Noise2Noise is an image-denoising model which is trained on noisy data only.
-This implementation is based on the ICML 2018 paper. Check out the paper [here](https://arxiv.org/abs/1803.04189)!
+This implementation is based on the ICML 2018 [paper](https://arxiv.org/abs/1803.04189) by Jaakko Lehtinen et al.
 
 ## Some Specific Details
 
@@ -13,7 +13,7 @@ For Gaussian denoising, the model was trained with a *mean* of **10** and a *sta
 
 During the training of the Text Removal model, random number of text units were added.
 
-*For more details*, check out dataset.py.
+*For more details*, check out [dataset.py](https://github.com/pranjaldatta/PyVision/blob/master/pyvision/misc/noise2noise/dataset.py).
 
 ## Summary
 
