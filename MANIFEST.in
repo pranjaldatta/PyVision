@@ -11,6 +11,7 @@ include pyvision/detection/detr/data/*.txt
 include pyvision/segmentation/pspnet/config/*.json
 include pyvision/segmentation/pspnet/data/*.txt 
 
+include pyvision/misc/noise2noise/config/*.json  
 
 include pyvision/misc/mtcnn/config/*.json
 
