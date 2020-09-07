@@ -1,0 +1,1 @@
+from .model import FCN, available_models

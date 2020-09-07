@@ -16,4 +16,4 @@
 
 - [x] **Pyramid Scene Parsing Network (PSPNet)**: Link to [paper](https://arxiv.org/pdf/1612.01105.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta).
 
-- [ ] **Fully Convolutional Network for Segmentation (FCNNet)**: Link to [paper](https://arxiv.org/pdf/1605.06211v1.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta).
+- [x] **Fully Convolutional Network for Segmentation (FCNNet)**: Link to [paper](https://arxiv.org/pdf/1605.06211v1.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta).
