@@ -7,4 +7,5 @@ pyvision/face_detection/facenet/weights/
 pyvision/detection/detr/weights/
 pyvision/segmentation/pspnet/weights/
 pyvision/misc/noise2noise/weights/
-
+pyvision/segmentation/fcn/weights/
+test.py
