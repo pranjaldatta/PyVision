@@ -95,7 +95,7 @@ class Facenet:
         if img is not None:
             if isinstance(img, np.ndarray):
                 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                img = Image.fromarray(img)
+                img = Image.fromarray(img).convert('RGB')
             elif isinstance(img, Image.Image):
                 pass
             else:
@@ -110,7 +110,7 @@ class Facenet:
 
             if os.path.isfile(path):
                 
-                img = Image.open(path)
+                img = Image.open(path).convert("RGB")
                 
                 if label is None:
                     raise ValueError("label cannot be None when single image specified")
@@ -137,7 +137,7 @@ class Facenet:
             #print(face_tensors.shape)
         else:
             for img_name in imgs_list:
-                img = Image.open(os.path.join(path, img_name))
+                img = Image.open(os.path.join(path, img_name)).convert('RGB')
                 face_tensors = extract_face(self.mtcnn_module, img)
                 face_tensors = face_tensors.transpose(2, 3).transpose(1, 2)
                 face_tensors = face_tensors.squeeze(0)
@@ -188,10 +188,10 @@ class Facenet:
         """
         
         if isinstance(img, str):
-            img = Image.open(img)
+            img = Image.open(img).convert('RGB')
         elif isinstance(img, np.ndarray):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            img = Image.fromarray(img)
+            img = Image.fromarray(img).convert('RGB')
         elif isinstance(img, Image.Image):
             pass
         else:
@@ -235,7 +235,7 @@ class Facenet:
         l2_loss = (known_embeds_stack.T - img_embeddings.T).norm(dim=0)
 
         min_loss = l2_loss.min().item()
-        min_idx = (l2_loss == min_loss).nonzero().flatten().item()
+        min_idx = torch.nonzero(l2_loss == min_loss, as_tuple=False).flatten().item()
 
         if min_loss > .8:
             predicted = "Unknown"
