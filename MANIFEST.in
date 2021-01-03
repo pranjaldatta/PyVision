@@ -8,6 +8,9 @@ include pyvision/detection/detr/utils/pallete
 include pyvision/detection/detr/config/*.json
 include pyvision/detection/detr/data/*.txt
 
+include pyvision/detection/efficientdet/config/*.json
+include pyvision/detection/efficientdet/config/*.yaml
+
 include pyvision/segmentation/pspnet/config/*.json
 include pyvision/segmentation/pspnet/data/*.txt 
 
