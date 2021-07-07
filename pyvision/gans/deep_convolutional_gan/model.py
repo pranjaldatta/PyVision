@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from IPython.display import HTML
 
-from dcgan import Generator
+from .dcgan import Generator
 
 __PREFIX__ = os.path.dirname(os.path.realpath(__file__))
 
