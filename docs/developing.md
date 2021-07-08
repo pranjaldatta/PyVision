@@ -17,3 +17,5 @@
 - [x] **Pyramid Scene Parsing Network (PSPNet)**: Link to [paper](https://arxiv.org/pdf/1612.01105.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta).
 
 - [x] **Fully Convolutional Network for Segmentation (FCNNet)**: Link to [paper](https://arxiv.org/pdf/1605.06211v1.pdf). Being contributed by [Pranjal Datta](https://github.com/pranjaldatta).
+
+- [x] **Deep Convolutional GAN (DCGAN)**: Link to [paper](https://arxiv.org/abs/1511.06434.pdf). Contributed by [Srijarko Roy](https://github.com/srijarkoroy) and [Indira Dutta](https://github.com/indiradutta).
