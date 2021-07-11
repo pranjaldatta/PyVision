@@ -22,7 +22,7 @@ from .dcgan import Generator
 
 __PREFIX__ = os.path.dirname(os.path.realpath(__file__))
 
-class Deep_Conv_GAN(object):
+class DeepConvGAN(object):
 
     def __init__(self, nc = 3, nz = 100, ngf = 64, ngpu = 1):
 
