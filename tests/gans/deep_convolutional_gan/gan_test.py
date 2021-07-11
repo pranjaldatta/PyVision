@@ -1,4 +1,4 @@
-from pyvision.gans.deep_convolutional_gan import Deep_Conv_GAN
+from pyvision.gans.deep_convolutional_gan import DeepConvGAN
 
 ''' Initializing the DC_GAN module with the necessary paths '''
-Deep_Conv_GAN.inference(Deep_Conv_GAN, set_weight_dir = 'dcgan-model.pth', set_gen_dir='result_img')
+DeepConvGAN.inference(DeepConvGAN, set_weight_dir = 'dcgan-model.pth', set_gen_dir='result_img')
