@@ -1,1 +1,1 @@
-from .model import Deep_Conv_GAN
+from .model import DeepConvGAN
