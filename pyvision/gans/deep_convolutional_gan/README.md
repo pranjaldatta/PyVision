@@ -61,7 +61,8 @@ img_list, G_losses, D_losses = dc_gan.train(<path/to/save/model>)
 - To get the inferences directly with our pre-trained model please initialize the DeepConvGAN with the desired path to the model and get the inferences as:
 
 ```python
-from model import DeepConvGAN
+
+from pyvision.gans.deep_convolutional_gan import DeepConvGAN
 
 DeepConvGAN.inference(DeepConvGAN, set_weight_dir='dcgan-model.pth' , set_gen_dir='<path/to/save/inferences>')
 ```
