@@ -36,11 +36,11 @@ The resulting directory structure should be:
 
 **Note**: You may use any other dataset of your choice. However, please ensure that the directory structure remains the same for the code to be compatible with it.
 
-## Quick Start
-- Incase you want to use some other dataset to train the DCGAN, please initialize the DCGAN module with your desired dataset path and train as:
+## Quick Start    
+- Incase you want to use some other dataset to train the DCGAN (with 1 GPU), please initialize the DCGAN module with your desired dataset path and train as:
 
 ```python
-from dcgan import DCGAN
+from pyvision.gans.deep_convolutional_gan.dcgan import DCGAN
 
 dc_gan = DCGAN(data = <path/to/dataset>)
 img_list, G_losses, D_losses = dc_gan.train(<path/to/save/model>)
@@ -50,7 +50,7 @@ img_list, G_losses, D_losses = dc_gan.train(<path/to/save/model>)
 
 
 ```python
-from dcgan import DCGAN
+from pyvision.gans.deep_convolutional_gan.dcgan import DCGAN
 
 dc_gan = DCGAN(data = <path/to/dataset>, ngpu = <number of GPUs available>)
 img_list, G_losses, D_losses = dc_gan.train(<path/to/save/model>)
