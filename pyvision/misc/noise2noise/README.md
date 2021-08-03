@@ -11,7 +11,7 @@ For Gaussian denoising, the model was trained with a *mean* of **10** and a *sta
 
 ### For Text Removal
 
-During the training of the Text Removal model, random number of text units were added.
+During the training of text removal model, random number of text units were added.
 
 *For more details*, check out [dataset.py](https://github.com/pranjaldatta/PyVision/blob/master/pyvision/misc/noise2noise/dataset.py).
 
@@ -59,12 +59,12 @@ Gaussian Noise:
    
   </tr>
   <tr>
-    <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_gaussian/source_1.png" height=200 width=200></td>
-    <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_gaussian/denoised_1.png" height=200 width=200></td>
+    <td><img src="assets/gauss_1.png" height=200 width=200></td>
+    <td><img src="assets/gdenoised_1.png" height=200 width=200></td>
   </tr>
   <tr>
-  <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_gaussian/source_3.png" height=200 width=200></td>
-  <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_gaussian/denoised_3.png" height=200 width=200></td>
+  <td><img src="assets/gauss_3.png" height=200 width=200></td>
+  <td><img src="assets/gdenoised_3.png" height=200 width=200></td>
   </tr>
  </table>
 
@@ -76,12 +76,12 @@ Text Overlay
    
   </tr>
   <tr>
-    <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_text/source_1.png" height=200 width=200></td>
-    <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_text/denoised_1.png" height=200 width=200></td>
+    <td><img src="assets/text_1.png" height=200 width=200></td>
+    <td><img src="assets/tdenoised_1.png" height=200 width=200></td>
   </tr>
   <tr>
-  <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_text/source_3.png" height=200 width=200></td>
-  <td><img src="https://github.com/pranjaldatta/PyVision/blob/sashrika-n2n/tests/misc/noise2noise/Output_text/denoised_3.png" height=200 width=200></td>
+  <td><img src="assets/text_3.png" height=200 width=200></td>
+  <td><img src="assets/tdenoised_3.png" height=200 width=200></td>
   </tr>
  </table>
 
